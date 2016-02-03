@@ -5,7 +5,8 @@
     <script src="https://fb.me/react-0.14.7.min.js"></script>
     <script src="https://fb.me/react-dom-0.14.7.min.js"></script>
     <script src="lib/babel-browser.js"></script>
-    <script type="text/babel" src="app.js"></script>
+    <script type="text/babel" src="form.js"></script>
+    <script type="text/babel" src="yaml.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -14,57 +15,10 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-6">
-          <form action="get" post="#">
-
-            <div class="form-group">
-              <label for="image">Image file:</label>
-              <input type="text" name="image" id="image" class="form-control">
-            </div>
-
-            <div class="form-group">
-              <label for="alt">Image alt:</label>
-              <input type="text" name="alt" id="alt" class="form-control">
-            </div>
-
-            <div class="form-group">
-              <label for="caption">Main page caption:</label>
-              <input type="text" name="caption" id="caption" class="form-control">
-            </div>
-
-            <div class="form-group">
-              <label for="title">Image title:</label>
-              <input type="text" name="title" id="title" class="form-control">
-            </div>
-
-            <div class="form-group">
-              <label for="description">Image description:</label>
-              <textarea name="description" id="description" class="form-control" rows="10"></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="month">Month:</label>
-              <select name="month" id="month" class="form-control">
-                <option value="january">January</option>
-                <option value="february">February</option>
-                <option value="march">March</option>
-                <option value="april">April</option>
-                <option value="may">May</option>
-                <option value="june">June</option>
-                <option value="july">July</option>
-                <option value="august">August</option>
-                <option value="september">September</option>
-                <option value="october">October</option>
-                <option value="november">November</option>
-                <option value="december">December</option>
-              </select>
-            </div>
-
-            <input type="button" value="Clear" class="btn btn-default">
-          </form>
+        <div class="col-md-6" id="form-panel">
         </div>
 
-        <div class="col-md-6" id="yaml">
+        <div class="col-md-6" id="yaml-panel">
         </div>
 
       </div>
