@@ -2,12 +2,13 @@ class PictureForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-                   filename: '',
+                   photographer: 'andrew', // TODO: can I pull this from the form?
+                   filename: '', // TODO: construct this
                    title: '',
                    caption: '',
                    description: '',
                    alt: '',
-                   month: 'january'
+                   month: 'january' // TODO: can I pull this from the form?
                  };
   }
 
@@ -25,13 +26,21 @@ class PictureForm extends React.Component {
           <form action="get" post="#">
 
             <div className="form-group">
-              <label for="image">Image file:</label>
-              <input type="text" name="filename" id="filename" className="form-control" onChange={ (event) => this.handleChange(event) } />
-            </div>
-
-            <div className="form-group">
-              <label for="alt">Image alt:</label>
-              <input type="text" name="alt" id="alt" className="form-control" onChange={ (event) => this.handleChange(event) } />
+              <label for="photographer">Photographer:</label>
+              <select name="photographer" id="photographer" className="form-control" onChange={ (event) => this.handleChange(event) }>
+                <option value="andrew">Andrew</option>
+                <option value="dad">Dad</option>
+                <option value="dan">Dan</option>
+                <option value="ed">Ed</option>
+                <option value="gareth">Gareth</option>
+                <option value="hon">Honey</option>
+                <option value="kirsty">Kirsty</option>
+                <option value="lyns">Lyns</option>
+                <option value="michael">Michael</option>
+                <option value="sheena">Sheena</option>
+                <option value="shelley">Shelley</option>
+                <option value="tom">Tom</option>
+              </select>
             </div>
 
             <div className="form-group">
@@ -47,6 +56,11 @@ class PictureForm extends React.Component {
             <div className="form-group">
               <label for="description">Image description:</label>
               <textarea name="description" id="description" className="form-control" rows="10" onChange={ (event) => this.handleChange(event) } ></textarea>
+            </div>
+
+            <div className="form-group">
+              <label for="alt">Image alt:</label>
+              <input type="text" name="alt" id="alt" className="form-control" onChange={ (event) => this.handleChange(event) } />
             </div>
 
             <div className="form-group">
