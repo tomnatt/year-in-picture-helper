@@ -2,7 +2,7 @@ class PictureForm extends React.Component {
 
   componentWillMount() {
     // set the initial photographer and month
-    let p = 'andrew'; // TODO: can I pull this from the form?
+    let p = 'andrew';
     let m = 'january'; // TODO: can I pull this from the form?
     this.setState({ photographer: p, month: m });
 
