@@ -1,21 +1,53 @@
 class PictureForm extends React.Component {
   constructor(props) {
     super(props);
+
+    let p = 'andrew'; // TODO: can I pull this from the form?
+    let m = 'january'; // TODO: can I pull this from the form?
+
     this.state = {
-                   photographer: 'andrew', // TODO: can I pull this from the form?
-                   filename: '', // TODO: construct this
+                   photographer: p,
+                   filename: this.updateFilename(p, m),
                    title: '',
                    caption: '',
                    description: '',
                    alt: '',
-                   month: 'january' // TODO: can I pull this from the form?
+                   month: m
                  };
   }
 
   handleChange(e) {
-    var o = {};
+    let o = {};
     o[e.target.id] = e.target.value;
     this.setState(o);
+
+    if (e.target.id == 'photographer' || e.target.id == 'month') {
+      let photographer = (e.target.id == 'photographer' ? e.target.value : this.state.photographer);
+      let month = (e.target.id == 'month' ? e.target.value : this.state.month);
+      this.updateFilename(photographer, month);
+    }
+  }
+
+  updateFilename(p, m) {
+    this.setState({ filename: this.lookupMonth(m) + "-" + p + ".jpg" });
+  }
+
+  lookupMonth(m) {
+    let months = {
+                    "january": "01",
+                    "february": "02",
+                    "march": "03",
+                    "april": "04",
+                    "may": "05",
+                    "june": "06",
+                    "july": "07",
+                    "august": "08",
+                    "september": "09",
+                    "october": "10",
+                    "november": "11",
+                    "december": "12"
+                  };
+    return months[m];
   }
 
   render() {
