@@ -1,9 +1,25 @@
 class PictureForm extends React.Component {
 
   componentWillMount() {
-    // set the initial photographer and month
+    // set the initial photographer
     let p = 'andrew';
-    let m = 'january'; // TODO: can I pull this from the form?
+
+    // get this month
+    let months = [
+                  "january",
+                  "february",
+                  "march",
+                  "april",
+                  "may",
+                  "june",
+                  "july",
+                  "august",
+                  "september",
+                  "october",
+                  "november",
+                  "december"
+                ];
+    let m = months[new Date().getMonth()];
     this.setState({ photographer: p, month: m });
 
     // set the initial filename
