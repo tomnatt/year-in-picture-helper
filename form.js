@@ -1,19 +1,13 @@
 class PictureForm extends React.Component {
-  constructor(props) {
-    super(props);
 
+  componentWillMount() {
+    // set the initial photographer and month
     let p = 'andrew'; // TODO: can I pull this from the form?
     let m = 'january'; // TODO: can I pull this from the form?
+    this.setState({ photographer: p, month: m });
 
-    this.state = {
-                   photographer: p,
-                   filename: this.updateFilename(p, m),
-                   title: '',
-                   caption: '',
-                   description: '',
-                   alt: '',
-                   month: m
-                 };
+    // set the initial filename
+    this.updateFilename(p, m);
   }
 
   handleChange(e) {
@@ -22,9 +16,9 @@ class PictureForm extends React.Component {
     this.setState(o);
 
     if (e.target.id == 'photographer' || e.target.id == 'month') {
-      let photographer = (e.target.id == 'photographer' ? e.target.value : this.state.photographer);
-      let month = (e.target.id == 'month' ? e.target.value : this.state.month);
-      this.updateFilename(photographer, month);
+      let p = (e.target.id == 'photographer' ? e.target.value : this.state.photographer);
+      let m = (e.target.id == 'month' ? e.target.value : this.state.month);
+      this.updateFilename(p, m);
     }
   }
 
