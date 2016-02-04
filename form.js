@@ -19,8 +19,8 @@ class PictureForm extends React.Component {
 
   render() {
     return (
-      <div class="row" >
-        <div class="col-md-6" id="form-panel">
+      <div className="row" >
+        <div className="col-md-6" id="form-panel">
 
           <form action="get" post="#">
 
@@ -73,7 +73,32 @@ class PictureForm extends React.Component {
 
         </div>
 
-        <PictureYaml />
+        <PictureYaml filename={ this.state.filename }
+                     title={ this.state.title }
+                     caption={ this.state.caption }
+                     description={ this.state.description }
+                     alt={ this.state.alt }
+                     month={ this.state.month } />
+      </div>
+    );
+  }
+}
+
+class PictureYaml extends React.Component {
+  render() {
+    return (
+      <div className="col-md-6" id="yaml-panel">
+        <pre>
+         <code>
+            &nbsp;&nbsp;-<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;image: { this.props.filename }<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;image_title: { this.props.title }<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;caption: { this.props.caption }<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;description: { this.props.description }<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;alt: { this.props.alt }<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;month: { this.props.month }<br />
+          </code>
+        </pre>
       </div>
     );
   }
