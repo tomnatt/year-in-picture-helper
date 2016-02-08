@@ -1,28 +1,12 @@
 class PictureForm extends React.Component {
 
   componentWillMount() {
-    // set the initial photographer
+    // set the initial photographer and this month
     let p = 'andrew';
+    let m = Object.keys(this.months())[new Date().getMonth()];
 
-    // get this month
-    let months = [
-                  "january",
-                  "february",
-                  "march",
-                  "april",
-                  "may",
-                  "june",
-                  "july",
-                  "august",
-                  "september",
-                  "october",
-                  "november",
-                  "december"
-                ];
-    let m = months[new Date().getMonth()];
+    // set the state and create initial filename
     this.setState({ photographer: p, month: m });
-
-    // set the initial filename
     this.updateFilename(p, m);
   }
 
@@ -39,25 +23,24 @@ class PictureForm extends React.Component {
   }
 
   updateFilename(p, m) {
-    this.setState({ filename: this.lookupMonth(m) + "-" + p + ".jpg" });
+    this.setState({ filename: this.months()[m] + "-" + p + ".jpg" });
   }
 
-  lookupMonth(m) {
-    let months = {
-                    "january": "01",
-                    "february": "02",
-                    "march": "03",
-                    "april": "04",
-                    "may": "05",
-                    "june": "06",
-                    "july": "07",
-                    "august": "08",
-                    "september": "09",
-                    "october": "10",
-                    "november": "11",
-                    "december": "12"
-                  };
-    return months[m];
+  months() {
+    return {
+             "january": "01",
+             "february": "02",
+             "march": "03",
+             "april": "04",
+             "may": "05",
+             "june": "06",
+             "july": "07",
+             "august": "08",
+             "september": "09",
+             "october": "10",
+             "november": "11",
+             "december": "12"
+           };
   }
 
   render() {
