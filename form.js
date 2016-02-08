@@ -107,7 +107,7 @@ class PictureForm extends React.Component {
 
             <div className="form-group">
               <label for="month">Month:</label>
-              <select name="month" id="month" className="form-control" onChange={ (event) => this.handleChange(event) }>
+              <select name="month" id="month" className="form-control" onChange={ (event) => this.handleChange(event) } value={ this.state.month }>
                 <option value="january">January</option>
                 <option value="february">February</option>
                 <option value="march">March</option>
