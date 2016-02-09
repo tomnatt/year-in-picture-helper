@@ -91,18 +91,9 @@ class PictureForm extends React.Component {
             <div className="form-group">
               <label for="month">Month:</label>
               <select name="month" id="month" className="form-control" onChange={ (event) => this.handleChange(event) } value={ this.state.month }>
-                <option value="january">January</option>
-                <option value="february">February</option>
-                <option value="march">March</option>
-                <option value="april">April</option>
-                <option value="may">May</option>
-                <option value="june">June</option>
-                <option value="july">July</option>
-                <option value="august">August</option>
-                <option value="september">September</option>
-                <option value="october">October</option>
-                <option value="november">November</option>
-                <option value="december">December</option>
+                { Object.keys(this.months()).map(function(m) {
+                  return <option value={ m }>{ m.charAt(0).toUpperCase() + m.slice(1) }</option>
+                })}
               </select>
             </div>
 
