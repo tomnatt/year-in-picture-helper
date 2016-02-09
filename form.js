@@ -64,6 +64,15 @@ class PictureForm extends React.Component {
     return <option value={ string }>{ string.charAt(0).toUpperCase() + string.slice(1) }</option>;
   }
 
+  clear() {
+    this.setState({
+                    caption: '',
+                    title: '',
+                    description: '',
+                    alt: ''
+                  });
+  }
+
   render() {
     return (
       <div className="row" >
@@ -80,22 +89,42 @@ class PictureForm extends React.Component {
 
             <div className="form-group">
               <label for="caption">Main page caption:</label>
-              <input type="text" name="caption" id="caption" className="form-control" onChange={ (event) => this.handleChange(event) } />
+              <input type="text"
+                     name="caption"
+                     id="caption"
+                     className="form-control"
+                     value={ this.state.caption }
+                     onChange={ (event) => this.handleChange(event) } />
             </div>
 
             <div className="form-group">
               <label for="title">Image title:</label>
-              <input type="text" name="title" id="title" className="form-control" onChange={ (event) => this.handleChange(event) } />
+              <input type="text"
+                     name="title"
+                     id="title"
+                     className="form-control"
+                     value={ this.state.title }
+                     onChange={ (event) => this.handleChange(event) } />
             </div>
 
             <div className="form-group">
               <label for="description">Image description:</label>
-              <textarea name="description" id="description" className="form-control" rows="10" onChange={ (event) => this.handleChange(event) } ></textarea>
+              <textarea name="description"
+                        id="description"
+                        className="form-control"
+                        rows="10"
+                        value={ this.state.description }
+                        onChange={ (event) => this.handleChange(event) } ></textarea>
             </div>
 
             <div className="form-group">
               <label for="alt">Image alt:</label>
-              <input type="text" name="alt" id="alt" className="form-control" onChange={ (event) => this.handleChange(event) } />
+              <input type="text"
+                     name="alt"
+                     id="alt"
+                     className="form-control"
+                     value={ this.state.alt }
+                     onChange={ (event) => this.handleChange(event) } />
             </div>
 
             <div className="form-group">
@@ -105,7 +134,10 @@ class PictureForm extends React.Component {
               </select>
             </div>
 
-            <input type="button" value="Clear" className="btn btn-default" />
+            <input type="button"
+                   value="Clear"
+                   className="btn btn-default"
+                   onClick={ () => this.clear() } />
 
           </form>
 
