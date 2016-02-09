@@ -43,6 +43,27 @@ class PictureForm extends React.Component {
            };
   }
 
+  photographers() {
+    return [
+             "andrew",
+             "dad",
+             "dan",
+             "ed",
+             "gareth",
+             "hon",
+             "kirsty",
+             "lyns",
+             "michael",
+             "sheena",
+             "shelley",
+             "tom"
+           ];
+  }
+
+  selectOption(string) {
+    return <option value={ string }>{ string.charAt(0).toUpperCase() + string.slice(1) }</option>;
+  }
+
   render() {
     return (
       <div className="row" >
@@ -53,18 +74,7 @@ class PictureForm extends React.Component {
             <div className="form-group">
               <label for="photographer">Photographer:</label>
               <select name="photographer" id="photographer" className="form-control" onChange={ (event) => this.handleChange(event) }>
-                <option value="andrew">Andrew</option>
-                <option value="dad">Dad</option>
-                <option value="dan">Dan</option>
-                <option value="ed">Ed</option>
-                <option value="gareth">Gareth</option>
-                <option value="hon">Honey</option>
-                <option value="kirsty">Kirsty</option>
-                <option value="lyns">Lyns</option>
-                <option value="michael">Michael</option>
-                <option value="sheena">Sheena</option>
-                <option value="shelley">Shelley</option>
-                <option value="tom">Tom</option>
+                { this.photographers().map(this.selectOption) }
               </select>
             </div>
 
@@ -91,9 +101,7 @@ class PictureForm extends React.Component {
             <div className="form-group">
               <label for="month">Month:</label>
               <select name="month" id="month" className="form-control" onChange={ (event) => this.handleChange(event) } value={ this.state.month }>
-                { Object.keys(this.months()).map(function(m) {
-                  return <option value={ m }>{ m.charAt(0).toUpperCase() + m.slice(1) }</option>
-                })}
+                { Object.keys(this.months()).map(this.selectOption) }
               </select>
             </div>
 
