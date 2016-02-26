@@ -60,8 +60,10 @@ class PictureForm extends React.Component {
            ];
   }
 
-  selectOption(string) {
-    return <option value={ string }>{ string.charAt(0).toUpperCase() + string.slice(1) }</option>;
+  selectOption(string, index) {
+    return <option key={ index } value={ string }>
+             { string.charAt(0).toUpperCase() + string.slice(1) }
+           </option>;
   }
 
   clear() {
@@ -81,14 +83,14 @@ class PictureForm extends React.Component {
           <form action="get" post="#">
 
             <div className="form-group">
-              <label for="photographer">Photographer:</label>
+              <label htmlFor="photographer">Photographer:</label>
               <select name="photographer" id="photographer" className="form-control" onChange={ (event) => this.handleChange(event) }>
                 { this.photographers().map(this.selectOption) }
               </select>
             </div>
 
             <div className="form-group">
-              <label for="caption">Main page caption:</label>
+              <label htmlFor="caption">Main page caption:</label>
               <input type="text"
                      name="caption"
                      id="caption"
@@ -98,7 +100,7 @@ class PictureForm extends React.Component {
             </div>
 
             <div className="form-group">
-              <label for="title">Image title:</label>
+              <label htmlFor="title">Image title:</label>
               <input type="text"
                      name="title"
                      id="title"
@@ -108,7 +110,7 @@ class PictureForm extends React.Component {
             </div>
 
             <div className="form-group">
-              <label for="description">Image description:</label>
+              <label htmlFor="description">Image description:</label>
               <textarea name="description"
                         id="description"
                         className="form-control"
@@ -118,7 +120,7 @@ class PictureForm extends React.Component {
             </div>
 
             <div className="form-group">
-              <label for="alt">Image alt:</label>
+              <label htmlFor="alt">Image alt:</label>
               <input type="text"
                      name="alt"
                      id="alt"
@@ -128,7 +130,7 @@ class PictureForm extends React.Component {
             </div>
 
             <div className="form-group">
-              <label for="month">Month:</label>
+              <label htmlFor="month">Month:</label>
               <select name="month" id="month" className="form-control" onChange={ (event) => this.handleChange(event) } value={ this.state.month }>
                 { Object.keys(this.months()).map(this.selectOption) }
               </select>
