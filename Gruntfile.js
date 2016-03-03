@@ -31,21 +31,23 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['src/*.js'],
-        tasks: ['default']
+        tasks: ['build']
       }
     },
 
     devserver: {
       server: {},
       options: {
-        port: 3000
+        port: 3000,
+        async: false
       }
     }
 
   });
 
-  // Default task(s).
+  grunt.registerTask('dev', ['build', 'devserver', 'watch']);
   grunt.registerTask('build', ['babel', 'uglify']);
-  grunt.registerTask('default', ['babel', 'uglify', 'devserver', 'watch']);
+
+  grunt.registerTask('default', ['build']);
 
 };
