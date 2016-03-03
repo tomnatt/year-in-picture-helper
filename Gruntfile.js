@@ -26,11 +26,28 @@ module.exports = function(grunt) {
           'js/app.js': ['js/output.js']
         }
       }
+    },
+
+    watch: {
+      scripts: {
+        files: ['src/*.js'],
+        tasks: ['build']
+      }
+    },
+
+    devserver: {
+      server: {},
+      options: {
+        port: 3000,
+        async: false
+      }
     }
 
   });
 
-  // Default task(s).
-  grunt.registerTask('default', ['babel', 'uglify']);
+  grunt.registerTask('dev', ['build', 'devserver', 'watch']);
+  grunt.registerTask('build', ['babel', 'uglify']);
+
+  grunt.registerTask('default', ['build']);
 
 };
