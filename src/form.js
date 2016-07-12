@@ -13,6 +13,15 @@ class PictureForm extends React.Component {
   handleChange(e) {
     let o = {};
     o[e.target.id] = e.target.value;
+
+    // replace all " with \" in caption and description
+    if (e.target.id == 'caption' || e.target.id == 'description') {
+      // first unescape so we don't multi-escape
+      let str = e.target.value.replace(/\\"/g, '"');
+      o[e.target.id] = str.replace(/"/g, '\\"');
+    }
+
+    // make it so
     this.setState(o);
 
     if (e.target.id == 'photographer' || e.target.id == 'month') {
@@ -161,12 +170,12 @@ class PictureYaml extends React.Component {
     return (
       <div className="col-md-6" id="yaml-panel">
         <pre>
-         <code>
+          <code>
             &nbsp;&nbsp;-<br />
             &nbsp;&nbsp;&nbsp;&nbsp;image: { this.props.filename }<br />
             &nbsp;&nbsp;&nbsp;&nbsp;image_title: { this.props.title }<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;caption: { this.props.caption }<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;description: { this.props.description }<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;caption: "{ this.props.caption }"<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;description: "{ this.props.description }"<br />
             &nbsp;&nbsp;&nbsp;&nbsp;alt: { this.props.alt }<br />
             &nbsp;&nbsp;&nbsp;&nbsp;month: { this.props.month }<br />
           </code>
