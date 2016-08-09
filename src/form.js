@@ -148,6 +148,7 @@ class PictureForm extends React.Component {
             <input type="button"
                    value="Clear"
                    className="btn btn-default"
+                   accessKey="c"
                    onClick={ () => this.clear() } />
 
           </form>
