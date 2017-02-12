@@ -1,9 +1,9 @@
 class PictureForm extends React.Component {
 
   componentWillMount() {
-    // set the initial photographer and this month
+    // set the initial photographer and last month
     let p = 'andrew';
-    let m = Object.keys(this.months())[new Date().getMonth()];
+    let m = Object.keys(this.months())[new Date().getMonth() - 1];
 
     // set the state and create initial filename
     this.setState({ photographer: p, month: m });

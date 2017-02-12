@@ -13,7 +13,7 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'js/output.js': ['src/form.js']
-          }
+        }
       }
     },
 
