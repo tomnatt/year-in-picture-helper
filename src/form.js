@@ -54,17 +54,20 @@ class PictureForm extends React.Component {
 
   photographers() {
     return [
-             "andrew",
              "dad",
              "dan",
              "ed",
              "gareth",
+             "gill",
              "hon",
+             "iris",
+             "kat",
              "kirsty",
              "lyns",
              "michael",
+             "sean",
              "sheena",
-             "shelley",
+             "teresa",
              "tom"
            ];
   }
